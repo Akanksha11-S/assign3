@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Greeting Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .box {
+            width: 120px;
+            height: 120px;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 8px;
+            width: 200px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <h1 id="greeting">Hello</h1>
+
+    <!-- Color Boxes -->
+    <div class="container">
+        <div class="box" onclick="fillColor(this)">red</div>
+        <div class="box" onclick="fillColor(this)">blue</div>
+        <div class="box" onclick="fillColor(this)">green</div>
+        <div class="box" onclick="fillColor(this)">yellow</div>
+    </div>
+
+    <!-- Input & Button -->
+    <div class="controls">
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button onclick="greetUser()">Greet</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function greetUser() {
+            const name = document.getElementById("nameInput").value;
+            const greeting = document.getElementById("greeting");
+
+            if (name.trim() !== "") {
+                greeting.textContent = "Hello, " + name;
+            } else {
+                greeting.textContent = "Hello";
+            }
+        }
+
+        function fillColor(element) {
+            const color = element.textContent;
+            element.style.backgroundColor = color;
+            element.style.color = "white";
+        }
+    </script>
+
+</body>
+</html>
